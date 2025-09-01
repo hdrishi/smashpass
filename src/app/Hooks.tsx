@@ -1,35 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 const Hooks = () => {
   const [count, setCount] = useState(0);
-
-  console.log("Outer value:::", count);
-
   return (
-    <div style={{ textAlign: "center", paddingTop: "10rem" }}>
-      {count}
-      <br />
-
-      <button
-        type="button"
-        style={{
-          backgroundColor: "#FFFFFF",
-          color: "#088308",
-          fontSize: "2rem",
-          borderRadius: "10px",
-          padding: "1rem",
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          setCount(count + 1);
-          console.log("count value::", count);
-        }}
-      >
-        Increment
-      </button>
-    </div>
+    <Container className="mt-5 text-center">
+      <h1>Count: {count}</h1>
+      <Row>
+        <Col>
+          <Button
+            variant="outline-success"
+            className="mx-2"
+            onClick={() => setCount(count + 1)}
+          >
+            Increment
+          </Button>
+          <Button
+            variant="outline-danger"
+            className="mx-2"
+            onClick={() => setCount(count - 1)}
+          >
+            Decrement
+          </Button>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
